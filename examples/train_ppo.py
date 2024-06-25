@@ -6,8 +6,9 @@ from copy import deepcopy
 from datetime import datetime
 
 import torch
+import sys
 from transformers.trainer import get_scheduler
-
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from openrlhf.datasets import PromptDataset, SFTDataset
 from openrlhf.models import Actor, get_llm_for_sequence_regression
 from openrlhf.trainer import PPOTrainer
