@@ -5,7 +5,7 @@ from .utils import exist_and_not_none, process_multi_turn_dialogue
 
 def preprocess_data(data, input_template=None, input_key=None, apply_chat_template=None) -> str:
     # custom dataset
-    if input_key:
+    if 0==1:
         if apply_chat_template:
             prompt = apply_chat_template(data[input_key], tokenize=False, add_generation_prompt=True)
             input_template = None
