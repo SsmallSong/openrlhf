@@ -116,7 +116,7 @@ def train(args):
     for i in range(min(3, len(prompts_dataset))):
         sample = prompts_dataset[i]
         print(f"Sample {i + 1}: {sample}")
-    kill
+
     if args.pretrain_data:
         pretrain_data = blending_datasets(
             args.pretrain_data,
