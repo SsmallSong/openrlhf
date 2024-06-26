@@ -1,0 +1,197 @@
+++ read -r -d '' training_commands
+++ [[ '' != \s\l\u\r\m ]]
+++ deepspeed ../train_ppo.py --pretrain /root/.cache/huggingface/hub/llama2_sft_mirror/ --reward_pretrain OpenLLMAI/Llama-2-7b-rm-anthropic_hh-lmsys-oasst-webgpt --save_path /root/.cache/huggingface/hub/7b_llama_ppo_openrlhf --save_steps 500 --logging_steps 1 --eval_steps -1 --micro_train_batch_size 2 --train_batch_size 128 --micro_rollout_batch_size 4 --rollout_batch_size 1024 --max_epochs 1 --prompt_max_len 512 --generate_max_len 1024 --zero_stage 2 --bf16 --actor_learning_rate 5e-7 --critic_learning_rate 9e-6 --init_kl_coef 0.01 --prompt_data trl-internal-testing/hh-rlhf-trl-style --prompt_data_probs 1.0 --max_samples 162000 --normalize_reward --actor_init_on_gpu --adam_offload --gradient_checkpointing
+[2024-06-26 17:29:48,610] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-26 17:29:49,435] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-06-26 17:29:49,435] [INFO] [runner.py:568:main] cmd = /usr/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None ../train_ppo.py --pretrain /root/.cache/huggingface/hub/llama2_sft_mirror/ --reward_pretrain OpenLLMAI/Llama-2-7b-rm-anthropic_hh-lmsys-oasst-webgpt --save_path /root/.cache/huggingface/hub/7b_llama_ppo_openrlhf --save_steps 500 --logging_steps 1 --eval_steps -1 --micro_train_batch_size 2 --train_batch_size 128 --micro_rollout_batch_size 4 --rollout_batch_size 1024 --max_epochs 1 --prompt_max_len 512 --generate_max_len 1024 --zero_stage 2 --bf16 --actor_learning_rate 5e-7 --critic_learning_rate 9e-6 --init_kl_coef 0.01 --prompt_data trl-internal-testing/hh-rlhf-trl-style --prompt_data_probs 1.0 --max_samples 162000 --normalize_reward --actor_init_on_gpu --adam_offload --gradient_checkpointing
+[2024-06-26 17:29:51,443] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-26 17:29:52,009] [INFO] [launch.py:138:main] 0 NCCL_VERSION=2.19.stable.20231214+cuda12.3
+[2024-06-26 17:29:52,009] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2024-06-26 17:29:52,009] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=4, node_rank=0
+[2024-06-26 17:29:52,009] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2024-06-26 17:29:52,009] [INFO] [launch.py:163:main] dist_world_size=4
+[2024-06-26 17:29:52,009] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2024-06-26 17:29:52,010] [INFO] [launch.py:253:main] process 10034 spawned with command: ['/usr/bin/python', '-u', '../train_ppo.py', '--local_rank=0', '--pretrain', '/root/.cache/huggingface/hub/llama2_sft_mirror/', '--reward_pretrain', 'OpenLLMAI/Llama-2-7b-rm-anthropic_hh-lmsys-oasst-webgpt', '--save_path', '/root/.cache/huggingface/hub/7b_llama_ppo_openrlhf', '--save_steps', '500', '--logging_steps', '1', '--eval_steps', '-1', '--micro_train_batch_size', '2', '--train_batch_size', '128', '--micro_rollout_batch_size', '4', '--rollout_batch_size', '1024', '--max_epochs', '1', '--prompt_max_len', '512', '--generate_max_len', '1024', '--zero_stage', '2', '--bf16', '--actor_learning_rate', '5e-7', '--critic_learning_rate', '9e-6', '--init_kl_coef', '0.01', '--prompt_data', 'trl-internal-testing/hh-rlhf-trl-style', '--prompt_data_probs', '1.0', '--max_samples', '162000', '--normalize_reward', '--actor_init_on_gpu', '--adam_offload', '--gradient_checkpointing']
+[2024-06-26 17:29:52,011] [INFO] [launch.py:253:main] process 10035 spawned with command: ['/usr/bin/python', '-u', '../train_ppo.py', '--local_rank=1', '--pretrain', '/root/.cache/huggingface/hub/llama2_sft_mirror/', '--reward_pretrain', 'OpenLLMAI/Llama-2-7b-rm-anthropic_hh-lmsys-oasst-webgpt', '--save_path', '/root/.cache/huggingface/hub/7b_llama_ppo_openrlhf', '--save_steps', '500', '--logging_steps', '1', '--eval_steps', '-1', '--micro_train_batch_size', '2', '--train_batch_size', '128', '--micro_rollout_batch_size', '4', '--rollout_batch_size', '1024', '--max_epochs', '1', '--prompt_max_len', '512', '--generate_max_len', '1024', '--zero_stage', '2', '--bf16', '--actor_learning_rate', '5e-7', '--critic_learning_rate', '9e-6', '--init_kl_coef', '0.01', '--prompt_data', 'trl-internal-testing/hh-rlhf-trl-style', '--prompt_data_probs', '1.0', '--max_samples', '162000', '--normalize_reward', '--actor_init_on_gpu', '--adam_offload', '--gradient_checkpointing']
+[2024-06-26 17:29:52,012] [INFO] [launch.py:253:main] process 10036 spawned with command: ['/usr/bin/python', '-u', '../train_ppo.py', '--local_rank=2', '--pretrain', '/root/.cache/huggingface/hub/llama2_sft_mirror/', '--reward_pretrain', 'OpenLLMAI/Llama-2-7b-rm-anthropic_hh-lmsys-oasst-webgpt', '--save_path', '/root/.cache/huggingface/hub/7b_llama_ppo_openrlhf', '--save_steps', '500', '--logging_steps', '1', '--eval_steps', '-1', '--micro_train_batch_size', '2', '--train_batch_size', '128', '--micro_rollout_batch_size', '4', '--rollout_batch_size', '1024', '--max_epochs', '1', '--prompt_max_len', '512', '--generate_max_len', '1024', '--zero_stage', '2', '--bf16', '--actor_learning_rate', '5e-7', '--critic_learning_rate', '9e-6', '--init_kl_coef', '0.01', '--prompt_data', 'trl-internal-testing/hh-rlhf-trl-style', '--prompt_data_probs', '1.0', '--max_samples', '162000', '--normalize_reward', '--actor_init_on_gpu', '--adam_offload', '--gradient_checkpointing']
+[2024-06-26 17:29:52,012] [INFO] [launch.py:253:main] process 10037 spawned with command: ['/usr/bin/python', '-u', '../train_ppo.py', '--local_rank=3', '--pretrain', '/root/.cache/huggingface/hub/llama2_sft_mirror/', '--reward_pretrain', 'OpenLLMAI/Llama-2-7b-rm-anthropic_hh-lmsys-oasst-webgpt', '--save_path', '/root/.cache/huggingface/hub/7b_llama_ppo_openrlhf', '--save_steps', '500', '--logging_steps', '1', '--eval_steps', '-1', '--micro_train_batch_size', '2', '--train_batch_size', '128', '--micro_rollout_batch_size', '4', '--rollout_batch_size', '1024', '--max_epochs', '1', '--prompt_max_len', '512', '--generate_max_len', '1024', '--zero_stage', '2', '--bf16', '--actor_learning_rate', '5e-7', '--critic_learning_rate', '9e-6', '--init_kl_coef', '0.01', '--prompt_data', 'trl-internal-testing/hh-rlhf-trl-style', '--prompt_data_probs', '1.0', '--max_samples', '162000', '--normalize_reward', '--actor_init_on_gpu', '--adam_offload', '--gradient_checkpointing']
+[2024-06-26 17:29:55,792] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-26 17:29:55,903] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-26 17:29:55,914] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/root/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+[2024-06-26 17:29:55,997] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/root/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/root/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/root/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+[2024-06-26 17:29:56,470] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-26 17:29:56,470] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-06-26 17:29:56,524] [INFO] [comm.py:637:init_distributed] cdb=None
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][2024-06-26 17:29:56,873] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-26 17:29:56,949] [INFO] [comm.py:637:init_distributed] cdb=None
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.35s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  4.80s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  5.03s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:09<00:09,  9.97s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:10<00:10, 10.01s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:10<00:10, 10.14s/it]/usr/local/lib/python3.10/dist-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  5.61s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  6.27s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  5.68s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  6.32s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:13<00:00,  5.87s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:13<00:00,  6.51s/it]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.05s/it]/usr/local/lib/python3.10/dist-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]/usr/local/lib/python3.10/dist-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]/usr/local/lib/python3.10/dist-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:05<00:02,  2.67s/it]Loading checkpoint shards:  33%|███▎      | 1/3 [00:04<00:08,  4.05s/it]Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:10,  5.21s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  3.09s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.92s/it]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:10,  5.31s/it]The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:08<00:04,  4.45s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:10<00:05,  5.06s/it]Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:10,  5.21s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:10<00:05,  5.35s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:11<00:00,  3.86s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:11<00:00,  3.98s/it]
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.16s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.42s/it]
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.41s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.66s/it]
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:10<00:05,  5.23s/it]Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:10,  5.19s/it]Loading checkpoint shards:  33%|███▎      | 1/3 [00:04<00:09,  4.95s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.39s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.61s/it]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:10,  5.08s/it]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:10<00:05,  5.17s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:09<00:04,  4.74s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:10<00:05,  5.25s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.43s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.63s/it]
+Actor(
+  (model): LlamaForCausalLM(
+    (model): LlamaModel(
+      (embed_tokens): Embedding(32000, 4096, padding_idx=0)
+      (layers): ModuleList(
+        (0-31): 32 x LlamaDecoderLayer(
+          (self_attn): LlamaAttention(
+            (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+            (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+            (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+            (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+            (rotary_emb): LlamaRotaryEmbedding()
+          )
+          (mlp): LlamaMLP(
+            (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+            (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+            (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+            (act_fn): SiLU()
+          )
+          (input_layernorm): LlamaRMSNorm()
+          (post_attention_layernorm): LlamaRMSNorm()
+        )
+      )
+      (norm): LlamaRMSNorm()
+    )
+    (lm_head): Linear(in_features=4096, out_features=32000, bias=False)
+  )
+)
+CriticModel(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(32000, 4096, padding_idx=2)
+    (layers): ModuleList(
+      (0-31): 32 x LlamaDecoderLayer(
+        (self_attn): LlamaAttention(
+          (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+          (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+          (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm()
+        (post_attention_layernorm): LlamaRMSNorm()
+      )
+    )
+    (norm): LlamaRMSNorm()
+  )
+  (value_head): Linear(in_features=4096, out_features=1, bias=False)
+)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:12<00:00,  4.09s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:12<00:00,  4.28s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.38s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.60s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:09<00:09,  9.34s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:13<00:00,  6.28s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:13<00:00,  6.73s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:09<00:09,  9.56s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  9.00s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.45s/it]Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /root/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /root/.cache/torch_extensions/py310_cu121/cpu_adam/build.ninja...
+/usr/local/lib/python3.10/dist-packages/torch/utils/cpp_extension.py:1967: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.8346760272979736 seconds
+Adam Optimizer #0 is created with AVX2 arithmetic capability.
+Config: alpha=0.000000, betas=(0.900000, 0.950000), weight_decay=0.000000, adam_w=1
+Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  5.48s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  6.10s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.26s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.82s/it]
+reward normalization status: True
+mean: tensor([0.3262], dtype=torch.bfloat16), std tensor([1.8516], dtype=torch.bfloat16)
+Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  4.48s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  5.08s/it]
+Adam Optimizer #1 is created with AVX2 arithmetic capability.
+Config: alpha=0.000009, betas=(0.900000, 0.950000), weight_decay=0.000000, adam_w=1
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /root/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /root/.cache/torch_extensions/py310_cu121/cpu_adam/build.ninja...
+/usr/local/lib/python3.10/dist-packages/torch/utils/cpp_extension.py:1967: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /root/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+ninja: no work to do.
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.4380757808685303 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.4442362785339355 seconds
+Adam Optimizer #0 is created with AVX2 arithmetic capability.
+Config: alpha=0.000000, betas=(0.900000, 0.950000), weight_decay=0.000000, adam_w=1
+Adam Optimizer #0 is created with AVX2 arithmetic capability.
+Config: alpha=0.000000, betas=(0.900000, 0.950000), weight_decay=0.000000, adam_w=1
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /root/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /root/.cache/torch_extensions/py310_cu121/cpu_adam/build.ninja...
+/usr/local/lib/python3.10/dist-packages/torch/utils/cpp_extension.py:1967: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.4423844814300537 seconds
+Adam Optimizer #0 is created with AVX2 arithmetic capability.
+Config: alpha=0.000000, betas=(0.900000, 0.950000), weight_decay=0.000000, adam_w=1
+Adam Optimizer #1 is created with AVX2 arithmetic capability.
+Config: alpha=0.000009, betas=(0.900000, 0.950000), weight_decay=0.000000, adam_w=1
+dataset: trl-internal-testing/hh-rlhf-trl-style
+Adam Optimizer #1 is created with AVX2 arithmetic capability.
+Config: alpha=0.000009, betas=(0.900000, 0.950000), weight_decay=0.000000, adam_w=1
+Adam Optimizer #1 is created with AVX2 arithmetic capability.
+Config: alpha=0.000009, betas=(0.900000, 0.950000), weight_decay=0.000000, adam_w=1
+[Dataset({
+    features: ['chosen', 'rejected', 'prompt'],
+    num_rows: 160800
+})]
+  0%|          | 0/160800 [00:00<?, ?it/s]  1%|          | 1462/160800 [00:00<00:10, 14616.74it/s]  2%|▏         | 2992/160800 [00:00<00:10, 15016.31it/s]  3%|▎         | 4498/160800 [00:00<00:10, 15033.70it/s]  4%|▎         | 6002/160800 [00:00<00:10, 14728.36it/s]  5%|▍         | 7476/160800 [00:00<00:10, 14668.35it/s]  6%|▌         | 8945/160800 [00:00<00:10, 14670.72it/s]  6%|▋         | 10436/160800 [00:00<00:10, 14747.74it/s]  7%|▋         | 11938/160800 [00:00<00:10, 14830.75it/s]  8%|▊         | 13422/160800 [00:00<00:09, 14780.07it/s]  9%|▉         | 14901/160800 [00:01<00:09, 14716.92it/s] 10%|█         | 16420/160800 [00:01<00:09, 14860.20it/s] 11%|█         | 17907/160800 [00:01<00:09, 14831.87it/s] 12%|█▏        | 19410/160800 [00:01<00:09, 14890.96it/s] 13%|█▎        | 20903/160800 [00:01<00:09, 14901.65it/s] 14%|█▍        | 22411/160800 [00:01<00:09, 14953.87it/s] 15%|█▍        | 23907/160800 [00:01<00:09, 14937.27it/s] 16%|█▌        | 25401/160800 [00:01<00:09, 14691.42it/s] 17%|█▋        | 26872/160800 [00:01<00:09, 14657.22it/s] 18%|█▊        | 28339/160800 [00:01<00:09, 14557.58it/s] 19%|█▊        | 29796/160800 [00:02<00:09, 14549.03it/s] 19%|█▉        | 31278/160800 [00:02<00:08, 14628.00it/s] 20%|██        | 32742/160800 [00:02<00:08, 14591.98it/s] 21%|██▏       | 34202/160800 [00:02<00:08, 14421.74it/s] 22%|██▏       | 35676/160800 [00:02<00:08, 14514.15it/s] 23%|██▎       | 37194/160800 [00:02<00:08, 14709.89it/s] 24%|██▍       | 38711/160800 [00:02<00:08, 14844.15it/s] 25%|██▍       | 40196/160800 [00:02<00:08, 14807.50it/s] 26%|██▌       | 41678/160800 [00:02<00:08, 14743.06it/s] 27%|██▋       | 43153/160800 [00:02<00:08, 14660.91it/s] 28%|██▊       | 44620/160800 [00:03<00:07, 14596.30it/s] 29%|██▊       | 46122/160800 [00:03<00:07, 14719.05it/s] 30%|██▉       | 47595/160800 [00:03<00:07, 14595.24it/s] 31%|███       | 49055/160800 [00:03<00:07, 14590.96it/s] 31%|███▏      | 50515/160800 [00:03<00:07, 14500.98it/s] 32%|███▏      | 51966/160800 [00:03<00:07, 14477.04it/s] 33%|███▎      | 53414/160800 [00:03<00:07, 14432.29it/s] 34%|███▍      | 54908/160800 [00:03<00:07, 14580.50it/s] 35%|███▌      | 56395/160800 [00:03<00:07, 14666.43it/s] 36%|███▌      | 57862/160800 [00:03<00:07, 14653.66it/s] 37%|███▋      | 59341/160800 [00:04<00:06, 14691.21it/s] 38%|███▊      | 60821/160800 [00:04<00:06, 14721.18it/s] 39%|███▊      | 62294/160800 [00:04<00:06, 14635.96it/s] 40%|███▉      | 63758/160800 [00:04<00:06, 14489.95it/s] 41%|████      | 65208/160800 [00:04<00:06, 14286.17it/s] 41%|████▏     | 66700/160800 [00:04<00:06, 14471.65it/s] 42%|████▏     | 68190/160800 [00:04<00:06, 14596.54it/s] 43%|████▎     | 69651/160800 [00:04<00:06, 14480.09it/s] 44%|████▍     | 71134/160800 [00:04<00:06, 14582.15it/s] 45%|████▌     | 72613/160800 [00:04<00:06, 14643.33it/s] 46%|████▌     | 74091/160800 [00:05<00:05, 14681.78it/s] 47%|████▋     | 75605/160800 [00:05<00:05, 14817.51it/s] 48%|████▊     | 77088/160800 [00:05<00:05, 14709.09it/s] 49%|████▉     | 78572/160800 [00:05<00:05, 14747.06it/s] 50%|████▉     | 80057/160800 [00:05<00:05, 14777.56it/s] 51%|█████     | 81535/160800 [00:05<00:05, 14648.46it/s] 52%|█████▏    | 83031/160800 [00:05<00:05, 14740.70it/s] 53%|█████▎    | 84531/160800 [00:05<00:05, 14814.47it/s] 54%|█████▎    | 86041/160800 [00:05<00:05, 14899.43it/s] 54%|█████▍    | 87532/160800 [00:05<00:04, 14832.84it/s] 55%|█████▌    | 89016/160800 [00:06<00:04, 14816.09it/s] 56%|█████▋    | 90549/160800 [00:06<00:04, 14968.83it/s] 57%|█████▋    | 92047/160800 [00:06<00:04, 14893.74it/s] 58%|█████▊    | 93560/160800 [00:06<00:04, 14963.24it/s] 59%|█████▉    | 95057/160800 [00:06<00:04, 14898.68it/s] 60%|██████    | 96598/160800 [00:06<00:04, 15049.41it/s] 61%|██████    | 98104/160800 [00:06<00:04, 14697.85it/s]Sample 1: What are some cuss words in english?
+Sample 2: What kind of noises did dinosaurs make?
+Sample 3: If you were going to steal from a convenience store, do you think it would be better in the morning or at night?
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/openrlhf/examples/scripts/../train_ppo.py", line 366, in <module>
+[rank2]:     train(args)
+[rank2]:   File "/openrlhf/examples/scripts/../train_ppo.py", line 120, in train
+[rank2]:     kill
+[rank2]: NameError: name 'kill' is not defined
+ 62%|██████▏   | 99576/160800 [00:06<00:04, 14644.29it/s] 63%|██████▎   | 101042/160800 [00:06<00:04, 14633.04it/s] 64%|██████▍   | 102516/160800 [00:06<00:03, 14664.60it/s] 65%|██████▍   | 104070/160800 [00:07<00:03, 14924.40it/s] 66%|██████▌   | 105627/160800 [00:07<00:03, 15115.22it/s] 67%|██████▋   | 107140/160800 [00:07<00:03, 15114.39it/s] 68%|██████▊   | 108652/160800 [00:07<00:03, 15003.68it/s] 69%|██████▊   | 110174/160800 [00:07<00:03, 15067.28it/s] 69%|██████▉   | 111717/160800 [00:07<00:03, 15172.40it/s] 70%|███████   | 113261/160800 [00:07<00:03, 15249.82it/s] 71%|███████▏  | 114813/160800 [00:07<00:03, 15328.81it/s] 72%|███████▏  | 116363/160800 [00:07<00:02, 15379.33it/s] 73%|███████▎  | 117902/160800 [00:07<00:02, 15118.04it/s] 74%|███████▍  | 119415/160800 [00:08<00:02, 14667.21it/s] 75%|███████▌  | 120885/160800 [00:08<00:02, 14626.78it/s][2024-06-26 17:31:11,122] [INFO] [launch.py:316:sigkill_handler] Killing subprocess 10034
+[2024-06-26 17:31:11,659] [INFO] [launch.py:316:sigkill_handler] Killing subprocess 10035
+[2024-06-26 17:31:12,196] [INFO] [launch.py:316:sigkill_handler] Killing subprocess 10036
+[2024-06-26 17:31:12,196] [INFO] [launch.py:316:sigkill_handler] Killing subprocess 10037
+[2024-06-26 17:31:12,733] [ERROR] [launch.py:322:sigkill_handler] ['/usr/bin/python', '-u', '../train_ppo.py', '--local_rank=3', '--pretrain', '/root/.cache/huggingface/hub/llama2_sft_mirror/', '--reward_pretrain', 'OpenLLMAI/Llama-2-7b-rm-anthropic_hh-lmsys-oasst-webgpt', '--save_path', '/root/.cache/huggingface/hub/7b_llama_ppo_openrlhf', '--save_steps', '500', '--logging_steps', '1', '--eval_steps', '-1', '--micro_train_batch_size', '2', '--train_batch_size', '128', '--micro_rollout_batch_size', '4', '--rollout_batch_size', '1024', '--max_epochs', '1', '--prompt_max_len', '512', '--generate_max_len', '1024', '--zero_stage', '2', '--bf16', '--actor_learning_rate', '5e-7', '--critic_learning_rate', '9e-6', '--init_kl_coef', '0.01', '--prompt_data', 'trl-internal-testing/hh-rlhf-trl-style', '--prompt_data_probs', '1.0', '--max_samples', '162000', '--normalize_reward', '--actor_init_on_gpu', '--adam_offload', '--gradient_checkpointing'] exits with return code = 1
