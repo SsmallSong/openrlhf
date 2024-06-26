@@ -22,7 +22,7 @@ read -r -d '' training_commands <<EOF
     --init_kl_coef 0.01 \
     --prompt_data trl-internal-testing/hh-rlhf-trl-style \
     --prompt_data_probs 1.0 \
-    --max_samples 1700000 \
+    --max_samples 10 \
     --normalize_reward \
     --actor_init_on_gpu \
     --adam_offload \
