@@ -2,7 +2,7 @@ set -x
 
 read -r -d '' training_commands <<EOF
 /home/wxt/huatong/OpenRLHF/examples/scripts/train_ppo.py \
-    --pretrain /home/wxt/huggingface/hub/llama2_sft_mirror/ \
+    --pretrain /root/.cache/huggingface/hub/llama2_sft_mirror/ \
     --reward_pretrain OpenLLMAI/Llama-2-7b-rm-anthropic_hh-lmsys-oasst-webgpt \
     --save_path ./ckpt/7b_llama \
     --save_steps -1 \
