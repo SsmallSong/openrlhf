@@ -14,6 +14,7 @@ def preprocess_data(data, input_template=None, input_key=None, apply_chat_templa
     else:
         #hh-rlhf
         if exist_and_not_none(data, "prompt"):
+            print("helphelphelpme!!")
             prompt = data["prompt"]
             prompt = "\n<|user|>\n" +prompt+"\n<|assistant|>\n"
             input_template = None  # do not modified with input template again
