@@ -12,23 +12,29 @@ def preprocess_data(data, input_template=None, input_key=None, apply_chat_templa
         else:
             prompt = data[input_key]
     else:
-        # Open-Orca/OpenOrca
-        if exist_and_not_none(data, "system_prompt") and exist_and_not_none(data, "response"):
-            prompt = data["system_prompt"] + " " + data["question"]
-        # Dahoas/full-hh-rlhf
-        elif exist_and_not_none(data, "prompt"):
+        #hh-rlhf
+        if exist_and_not_none(data, "prompt"):
             prompt = data["prompt"]
-            # tasksource/oasst1_pairwise_rlhf_reward
-            if prompt.startswith("prompter:"):
-                prompt = (
-                    prompt.replace("prompter:", "\nHuman: ").replace("assistant:", "\nAssistant: ") + "\nAssistant: "
-                )
+            prompt = "\n<|user|>\n" +prompt+"\n<|assistant|>\n"
             input_template = None  # do not modified with input template again
-        # RLHFlow/prompt-collection-v0.1
-        elif exist_and_not_none(data, "context_messages") and isinstance(data["context_messages"], list):
-            prompt = data["context_messages"]
-            prompt = process_multi_turn_dialogue(prompt, input_template=input_template)
-            input_template = None  # do not modified with input template again
+            
+        # # Open-Orca/OpenOrca
+        # if exist_and_not_none(data, "system_prompt") and exist_and_not_none(data, "response"):
+        #     prompt = data["system_prompt"] + " " + data["question"]
+        # # Dahoas/full-hh-rlhf
+        # elif exist_and_not_none(data, "prompt"):
+        #     prompt = data["prompt"]
+        #     # tasksource/oasst1_pairwise_rlhf_reward
+        #     if prompt.startswith("prompter:"):
+        #         prompt = (
+        #             prompt.replace("prompter:", "\nHuman: ").replace("assistant:", "\nAssistant: ") + "\nAssistant: "
+        #         )
+        #     input_template = None  # do not modified with input template again
+        # # RLHFlow/prompt-collection-v0.1
+        # elif exist_and_not_none(data, "context_messages") and isinstance(data["context_messages"], list):
+        #     prompt = data["context_messages"]
+        #     prompt = process_multi_turn_dialogue(prompt, input_template=input_template)
+        #     input_template = None  # do not modified with input template again
         else:
             raise ValueError("Unknown prompts dataset")
 
