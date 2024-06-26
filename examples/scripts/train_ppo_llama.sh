@@ -13,7 +13,7 @@ read -r -d '' training_commands <<EOF
     --micro_rollout_batch_size 4 \
     --rollout_batch_size 1024 \
     --max_epochs 1 \
-    --prompt_max_len 1024 \
+    --prompt_max_len 512 \
     --generate_max_len 1024 \
     --zero_stage 2 \
     --bf16 \
