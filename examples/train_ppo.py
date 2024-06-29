@@ -152,10 +152,15 @@ def train(args):
         int(len(prompts_dataloader) * (args.micro_rollout_batch_size / args.micro_train_batch_size))
         * args.max_epochs
         // strategy.accumulated_gradient
+    
     )
-
+   # print(len(prompts_dataloader))
+    print(num_update_steps_per_episodes )
     max_steps = math.ceil(args.num_episodes * num_update_steps_per_episodes)
-
+    print("="*50)
+    print(max_steps)
+    print("="*50)
+    kill
     actor_scheduler = get_scheduler(
         "cosine",
         actor_optim,

@@ -5,7 +5,7 @@ from .utils import exist_and_not_none, process_multi_turn_dialogue
 
 def preprocess_data(data, input_template=None, input_key=None, apply_chat_template=None) -> str:
 
-    print("helphelphelpme!!")
+    print("hereherehereherh")
     prompt = data["prompt"]
     prompt = "\n<|user|>\n" +prompt+"\n<|assistant|>\n"
     input_template = None  # do not modified with input template again
