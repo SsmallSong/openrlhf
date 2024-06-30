@@ -26,7 +26,9 @@ read -r -d '' training_commands <<EOF
     --normalize_reward \
     --actor_init_on_gpu \
     --adam_offload \
-    --gradient_checkpointing
+    --gradient_checkpointing \
+    --apply_chat_template True \
+    --input_key 'prompt'
 EOF
      # --wandb [WANDB_TOKENS] or True (use wandb login command)
 
