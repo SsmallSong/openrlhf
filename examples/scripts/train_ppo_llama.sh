@@ -2,10 +2,10 @@ set -x
 
 read -r -d '' training_commands <<EOF
 ../train_ppo.py \
-    --pretrain /root/.cache/huggingface/hub/llama2_sft_mirror/ \
+    --pretrain meta-llama/Meta-Llama-3-8B-Instruct/ \
     --reward_pretrain OpenLLMAI/Llama-2-7b-rm-anthropic_hh-lmsys-oasst-webgpt \
-    --save_path /root/.cache/huggingface/hub/7b_llama_ppo_openrlhf \
-    --save_steps 500 \
+    --save_path /root/.cache/huggingface/hub/7b_llama3_inst_ppo_openrlhf \
+    --save_steps 20 \
     --logging_steps 1 \
     --eval_steps -1 \
     --micro_train_batch_size 2 \
@@ -20,7 +20,7 @@ read -r -d '' training_commands <<EOF
     --actor_learning_rate 5e-7 \
     --critic_learning_rate 9e-6 \
     --init_kl_coef 0.01 \
-    --prompt_data trl-internal-testing/hh-rlhf-trl-style \
+    --prompt_data princeton-nlp/llama3-ultrafeedback \
     --prompt_data_probs 1.0 \
     --max_samples 162000 \
     --normalize_reward \
