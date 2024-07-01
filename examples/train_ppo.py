@@ -113,7 +113,7 @@ def train(args):
     prompts_data = prompts_data.select(range(min(args.max_samples, len(prompts_data))))
     prompts_dataset = PromptDataset(prompts_data, tokenizer, strategy, input_template=args.input_template)
     prompts_dataloader = strategy.setup_dataloader(prompts_dataset, args.micro_rollout_batch_size, True, True)
-    for i in range(min(3, len(prompts_dataset))):
+    for i in range(min(5, len(prompts_dataset))):
         sample = prompts_dataset[i]
         print(f"Sample {i + 1}: {sample}")
 
@@ -157,10 +157,10 @@ def train(args):
    # print(len(prompts_dataloader))
     print(num_update_steps_per_episodes )
     max_steps = math.ceil(args.num_episodes * num_update_steps_per_episodes)
-    print("="*50)
-    print(max_steps)
-    print("="*50)
-    kill
+    # print("="*50)
+    # print(max_steps)
+    # print("="*50)
+    # kill
     actor_scheduler = get_scheduler(
         "cosine",
         actor_optim,
