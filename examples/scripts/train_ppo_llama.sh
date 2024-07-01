@@ -2,7 +2,7 @@ set -x
 
 read -r -d '' training_commands <<EOF
 ../train_ppo.py \
-    --pretrain meta-llama/Meta-Llama-3-8B-Instruct/ \
+    --pretrain meta-llama/Meta-Llama-3-8B-Instruct \
     --reward_pretrain OpenLLMAI/Llama-2-7b-rm-anthropic_hh-lmsys-oasst-webgpt \
     --save_path /root/.cache/huggingface/hub/7b_llama3_inst_ppo_openrlhf \
     --save_steps 20 \
@@ -27,8 +27,8 @@ read -r -d '' training_commands <<EOF
     --actor_init_on_gpu \
     --adam_offload \
     --gradient_checkpointing \
-    --apply_chat_template True \
-    --input_key 'prompt'
+    --apply_chat_template \
+    --input_key prompt
 EOF
      # --wandb [WANDB_TOKENS] or True (use wandb login command)
 
