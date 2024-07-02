@@ -3,7 +3,7 @@ set -x
 read -r -d '' training_commands <<EOF
 ../train_ppo.py \
     --pretrain meta-llama/Meta-Llama-3-8B-Instruct \
-    --reward_pretrain OpenLLMAI/Llama-2-7b-rm-anthropic_hh-lmsys-oasst-webgpt \
+    --reward_pretrain OpenLLMAI/Llama-3-8b-rm-mixture \
     --save_path /root/.cache/huggingface/hub/7b_llama3_inst_ppo_openrlhf \
     --save_steps 20 \
     --logging_steps 1 \
@@ -13,8 +13,8 @@ read -r -d '' training_commands <<EOF
     --micro_rollout_batch_size 4 \
     --rollout_batch_size 1024 \
     --max_epochs 1 \
-    --prompt_max_len 2048 \
-    --generate_max_len 256 \
+    --prompt_max_len 512 \
+    --generate_max_len 512 \
     --zero_stage 2 \
     --bf16 \
     --actor_learning_rate 5e-7 \
