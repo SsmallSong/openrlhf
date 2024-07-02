@@ -1118,3 +1118,24 @@ Describe the differences between the mechanisms of action in cognitive-behaviora
 }
 Episode [1/1]:   0%|          | 0/3742 [00:00<?, ?it/s]/usr/local/lib/python3.10/dist-packages/transformers/generation/configuration_utils.py:588: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
   warnings.warn(
+****************************************
+openrlhf/models/actor.py
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+****************************************
+openrlhf/models/actor.py
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+****************************************
+openrlhf/models/actor.py
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+****************************************
+openrlhf/models/actor.py
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+Episode [1/1]:   0%|          | 1/3742 [00:39<41:28:36, 39.91s/it]****************************************
+openrlhf/models/actor.py
+****************************************
+openrlhf/models/actor.py
+****************************************
+openrlhf/models/actor.py
+****************************************
+openrlhf/models/actor.py
+Episode [1/1]:   0%|          | 2/3742 [01:12<37:06:38, 35.72s/it]
