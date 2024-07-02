@@ -5,7 +5,7 @@ read -r -d '' training_commands <<EOF
     --pretrain meta-llama/Meta-Llama-3-8B-Instruct \
     --reward_pretrain OpenLLMAI/Llama-3-8b-rm-mixture \
     --save_path /root/.cache/huggingface/hub/7b_llama3_inst_ppo_openrlhf \
-    --save_steps 20 \
+    --save_steps 15 \
     --logging_steps 1 \
     --eval_steps -1 \
     --micro_train_batch_size 2 \
@@ -14,7 +14,7 @@ read -r -d '' training_commands <<EOF
     --rollout_batch_size 1024 \
     --max_epochs 1 \
     --prompt_max_len 512 \
-    --generate_max_len 512 \
+    --generate_max_len 256 \
     --zero_stage 2 \
     --bf16 \
     --actor_learning_rate 5e-7 \
